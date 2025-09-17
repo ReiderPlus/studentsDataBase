@@ -21,10 +21,7 @@ jobs:
       run: g++ -o student_db main.cpp
 
     - name: Build tests
-      run: g++ -o tests tests.cpp
+      run: g++ -o tests tests.cpp main.cpp
 
     - name: Run tests
       run: ./tests
-
-    - name: Test main application
-      run: |
