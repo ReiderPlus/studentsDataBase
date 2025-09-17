@@ -36,6 +36,13 @@ void displayStudents(const std::vector<Student>& database) {
     }
 }
 
+double sumGPAs(const std::vector<Student>& database) {
+    double total = 0.0;
+    for (const Student& student : database) {
+        total += student.gpa;
+    }
+    return total;
+
 int main() {
     std::vector<Student> database;
 
