@@ -3,6 +3,7 @@
 #include <string>
 #include <cassert>
 #include <cmath>
+#include "main.cpp"
 
 // Объявляем структуру и функции из main.cpp
 struct Student {
