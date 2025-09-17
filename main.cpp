@@ -42,6 +42,8 @@ double sumGPAs(const std::vector<Student>& database) {
         total += student.gpa;
     }
     return total;
+}
+
 
 int main() {
     std::vector<Student> database;
