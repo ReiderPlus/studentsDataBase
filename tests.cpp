@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <cmath>
 
 // Объявляем структуру и функции из main.cpp
 struct Student {
