@@ -1,0 +1,35 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y g++
+        
+    - name: Compile program
+      run: |
+        g++ -std=c++20 main.cpp -o student_app
+        
+    - name: Run tests
+      run: |
+        echo "4" | ./student_app | tee output.txt
+        
+        if grep -q "Все тесты пройдены успешно" output.txt; then
+          echo "Тесты прошли успешно"
+          exit 0
+        else
+          echo "Тесты не прошли"
+          cat output.txt
+          exit 1
+        fi
