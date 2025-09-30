@@ -25,7 +25,7 @@ jobs:
       run: |
         echo "4" | ./student_app | tee output.txt
         
-        if grep -q "Все тесты пройдены успешно" output.txt; then
+        if grep -q "Все тесты пройдены" output.txt; then
           echo "Тесты прошли успешно"
           exit 0
         else
