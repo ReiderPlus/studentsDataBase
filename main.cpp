@@ -27,6 +27,10 @@ void addStudent(std::vector<Student>& database) {
 
 // Функция для вывода всех студентов из базы данных
 void displayStudents(const std::vector<Student>& database) {
+    if (database.empty()) {
+        std::cout << "База данных пуста.\n";
+        return;
+    }
     std::cout << "Список студентов:\n";
     for (const Student& student : database) {
         std::cout << "Имя: " << student.name << "\n";
@@ -34,6 +38,15 @@ void displayStudents(const std::vector<Student>& database) {
         std::cout << "Специальность: " << student.major << "\n";
         std::cout << "Средний балл: " << student.gpa << "\n\n";
     }
+}
+
+// Функция для подсчёта суммы средних баллов
+double sumGPA(const std::vector<Student>& database) {
+    double total = 0.0;
+    for (const Student& student : database) {
+        total += student.gpa;
+    }
+    return total;
 }
 
 int main() {
@@ -44,6 +57,7 @@ int main() {
         std::cout << "Меню:\n";
         std::cout << "1. Добавить студента\n";
         std::cout << "2. Вывести список студентов\n";
+        std::cout << "3. Показать сумму средних баллов\n";
         std::cout << "0. Выход\n";
         std::cout << "Выберите действие: ";
         std::cin >> choice;
@@ -54,6 +68,9 @@ int main() {
                 break;
             case 2:
                 displayStudents(database);
+                break;
+            case 3:
+                std::cout << "Сумма средних баллов: " << sumGPA(database) << "\n\n";
                 break;
             case 0:
                 std::cout << "Выход из программы.\n";
